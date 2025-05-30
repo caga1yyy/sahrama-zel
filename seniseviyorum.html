@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Senin İçin ❤</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #ffccff);
+      overflow-x: hidden;
+    }
+
+    .login, .intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-size: 2rem;
+      color: #d6336c;
+      font-weight: bold;
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #mainContent {
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in forwards;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff3366;
+      animation: float 4s linear infinite;
+      font-size: 2rem;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    button, input[type="password"] {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      background: #ff66a3;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #e60073;
+    }
+
+    .photo-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 4rem 2rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .photo-block:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .photo-block img {
+      width: 350px;
+      max-width: 90vw;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .photo-block p {
+      font-size: 1.7rem;
+      max-width: 500px;
+      line-height: 1.6;
+      color: #a8325a;
+      font-style: italic;
+    }
+
+    #loveLetter {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff0f5;
+      border: 2px solid #ff99cc;
+      border-radius: 20px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      z-index: 9999;
+      font-size: 1.2rem;
+      color: #a8325a;
+      line-height: 1.6;
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="login" id="login">
+    <div>💖 Lütfen şifreyi gir:</div>
+    <input type="password" id="passwordInput" placeholder="dd.mm.yyyy" />
+    <button onclick="checkPassword()">Giriş</button>
+  </div>
+
+  <div class="intro hidden" id="intro">
+    <span id="typingText"></span>
+  </div>
+
+  <div id="mainContent">
+    <h1>Canım Sevgilim 💖</h1>
+    <p>Bu sayfa sadece senin için hazırlandı...</p>
+    <p>Burada birlikte yaşadıklarımızın bir kısmı, küçük bir hatıra olarak hep kalacak.</p>
+    <button onclick="showLetter()">Mektubu Oku 💌</button>
+
+    <!-- FOTOĞRAF VE YAZI BLOKLARI -->
+    <div class="photo-block">
+      <img src="foto2.jpg" alt="Sevgilim">
+      <p>Seninle gerçekten ben olarak buluştuğum ilk gündü. İçimde ilk defa biriyle tanışırken utanmamak ne demekmiş, seni görünce anladım.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto6.jpg" alt="Sevgilim">
+      <p>Seninle buluştuğumda o kadar mutluydum ki… Gözlerinle gülümsedin ya, içimde her şey durdu.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto7.jpg" alt="Sevgilim">
+      <p>Burada çok mutluydum çünkü sen mutluydun. Senin gülüşün benim dünyam oldu hep.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto1.jpg" alt="Sevgilim">
+      <p>Ben senin yanında her zaman olacağıma söz verdim. Ne olursa olsun, seni bırakmam.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto3.jpg" alt="Sevgilim">
+      <p>O kadar güzel bakıyordun ki… Gözlerin içimi ısıttı, kalbime dokundu.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto4.jpg" alt="Sevgilim">
+      <p>Beraber gülebiliyorduk, eğlenebiliyorduk. Seninle hayat çok daha güzeldi.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto8.jpg" alt="Sevgilim">
+      <p>O gün çok kötü kavga etmiştik ama seni bekledim, affettin beni. İşte bu yüzden her şeye rağmen seninle olmak istiyorum.</p>
+    </div>
+    <div class="photo-block">
+      <img src="foto11.jpg" alt="Sevgilim">
+      <p>Ve işte geldik en son halimize… Seni hep seveceğim. Şimdi, yarın, her zaman.</p>
+    </div>
+  </div>
+
+  <!-- Müzik (ses %50) -->
+  <audio id="bgMusic" loop>
+    <source src="Emre Altuğ - Neyleyim (Canlı).mp3" type="audio/mpeg">
+    Tarayıcınız ses etiketini desteklemiyor.
+  </audio>
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Mektup Kutusu -->
+  <div id="loveLetter">
+    <div style="text-align: right;">
+      <button onclick="closeLetter()" style="
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #d6336c;
+      ">✖️</button>
+    </div>
+    <h2 style="text-align: center;">Sevgilim,</h2>
+    <p style="text-align: justify;">
+      Beraber yan yana çok güzel bir 6 ay geçirdik. Hem güldük, eğlendik, yeri geldi ağladık ama hiç bir zaman birbirimizi bırakmadık.
+    </p>
+    <p style="text-align: justify;">
+      Bu geçirdiğimiz 6 ay, hayatımın en güzel 6 ayıydı. Mutluyum çünkü ömrümü gözlerinle, gülüşünle ve sarılınca hissettiğim huzurunla geçireceğim.
+    </p>
+    <p style="text-align: justify;">
+      Bu hayatta ne olursa olsun ben senin hep yanında olacağım birtanem. Tüm içtenliğimle söylüyorum ki <strong style="color:#d6336c;">seni çok seviyorum</strong>.
+    </p>
+    <p style="text-align: right; margin-top: 2rem;">— Her zaman senin 💌</p>
+  </div>
+
+  <script>
+    const text = "Senin için bir sürprizim var aşkım...";
+    let i = 0;
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      const correctPassword = "05.01.2025";
+      if (input === correctPassword) {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('intro').classList.remove('hidden');
+        startTyping();
+        
+        // Müziği başlat
+        const music = document.getElementById('bgMusic');
+        music.volume = 0.5;
+        music.play().catch(e => console.log("Müzik oynatılamadı:", e));
+      } else {
+        alert("Şifre yanlış, bir daha dene canım ❤");
+      }
+    }
+
+    function startTyping() {
+      const typing = setInterval(() => {
+        document.getElementById('typingText').textContent += text[i];
+        i++;
+        if (i === text.length) {
+          clearInterval(typing);
+          setTimeout(showMainContent, 1500);
+        }
+      }, 100);
+    }
+
+    function showMainContent() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('mainContent').style.display = 'block';
+      startHearts();
+    }
+
+    function startHearts() {
+      const heartsContainer = document.getElementById('hearts');
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.textContent = '❤';
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }, 300);
+    }
+
+    function showLetter() {
+      document.getElementById("loveLetter").style.display = "block";
+    }
+
+    function closeLetter() {
+      document.getElementById("loveLetter").style.display = "none";
+    }
+  </script>
+</body>
+</html>
